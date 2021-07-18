@@ -67,7 +67,7 @@ setStorage(ArrayOfData)
         return storage.map((el, index) => {
             console.log(el, 12341284)
             return (
-                <View key={el.todo + el.id} style={styles.ItemContainer}>
+                <View key={index} style={styles.ItemContainer}>
                     <Text style={styles.itemText}>|Todo|: {el.todo}</Text>
                     <Text style={styles.itemText}>|Date|: {el.date}</Text>
                     <Pressable style={styles.todoContainer} onPress={() => onTodoDelete(el.todo)}>
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
         paddingTop: 5,
         paddingBottom: 5,
         borderRadius: 30,
-        marginTop: 190,
+        marginTop: 235,
 
     },
     ItemContainer: {
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
         borderColor: "white",
         resizeMode: 'contain',
         width: 360,
-        height: 300,
+        height: 340,
     },
     itemText: {
         color: "white",
