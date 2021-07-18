@@ -32,6 +32,7 @@ console.log(fetchStorage())
     },[handler])
 
     async function fetchStorage() {
+    storage.length = 0;
             const data: Data = await AsyncStorage.getAllKeys().then((el: any) => {
               AsyncStorage.multiGet(el).then(e => {
                     for (let i = 0;i < e.length; i++) {
@@ -46,20 +47,23 @@ setStorage(ArrayOfData)
 
 
     const onButtonClick = () => {
-    AsyncStorage.setItem(todo, JSON.stringify({todo: todo, id: id, date: date}))
+    AsyncStorage.setItem(todo, JSON.stringify({todo: todo, id: id, date: date}), () => {
+        setHandler(prev => prev + 1)
+    })
         setHandler(prev => prev + 1)
         console.log(ArrayOfData,3232952)
     }
 
     const onTodoDelete = (item: string) => {
-   AsyncStorage.removeItem(item, () => {
-       storage.filter(el => el.todo === item)
-   });
-   setHandler(prev => prev + 1)
+        AsyncStorage.removeItem(item, () => {
+            setHandler(prev => prev + 1)
+        });
+        storage.filter(el => el.todo === item)
+        setHandler(prev => prev + 1)
     }
 
     const renderList = () => {
-    console.log(storage, 5150)
+
         return storage.map((el, index) => {
             console.log(el, 12341284)
             return (
