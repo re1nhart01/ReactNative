@@ -15,7 +15,7 @@ interface DataForm {
 type Data = string | null | void
 
 
-const Todo = () => {
+const Todo: React.FC = (): JSX.Element => {
 const [date, setDate] = useState("")
     const [todo, setTodo] = useState("")
     let [state, setState]: [DataForm[], Function] = useState([])
