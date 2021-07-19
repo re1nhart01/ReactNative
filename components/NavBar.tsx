@@ -8,7 +8,6 @@ const NavBar = () => {
         <View style={styles.container}>
             <Link style={styles.linkStyle} to="/"><Text style={styles.text}>Todo</Text></Link>
             <Link style={styles.linkStyle} to="/temperature"><Text style={styles.text}>Temperature</Text></Link>
-            <Link style={styles.linkStyle} to="/WaterBalance"><Text style={styles.text}>Water</Text></Link>
         </View>
     )
 }
